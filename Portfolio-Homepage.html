@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="images/png" href="images/blackbglogo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Home</title>
+  <style>
+    body {
+      background: whitesmoke;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      transition-duration: 0.5s;
+    }
+    .darkBody {
+      background: rgb(33, 33, 33);
+      color: aliceblue;
+    }
+    .navbar {
+      padding: 5px;
+      height: 80px;
+      position: relative;
+      background-color: rgba(121, 119, 119, 0.11);
+      border-bottom: 1px solid gray;
+    }
+    .nav-left {
+      display: inline;
+    }
+    .nav-left img{
+      height: 70px;
+      position: absolute;
+      left: 10px;
+    }
+    .nav-right {
+      position: absolute;
+      right: 10px;
+      bottom: 20%;
+    }
+    .nav-right-buttons {
+      padding: 5px;
+      
+    }
+    .nav-right-buttons button {
+      background: transparent;
+      border: none;
+      font-weight: bold;
+      margin-top: 20px;
+      border-radius: 5px;
+      color: inherit;
+      cursor: pointer;
+      font-size: 50px;
+      transition-duration: 0.3s;
+    }
+    .nav-right-buttons button:hover {
+    background: rgba(128, 128, 128, 0.374);
+    }
+    .mainbody {
+      padding: 10px;
+    }
+
+    .Name {
+      font-weight: 20px;
+      font-size: 40px;
+      color: inherit;
+      margin-top: 5vh;
+      padding-top: 4vh;
+      margin-bottom: 5vh;
+      border-top: 1px solid gray;
+    }
+    .Links {
+      display: flex;
+      margin-top: 20px;
+      flex-direction: row;
+    }
+    .linkCard {
+      display: inline;
+      border: 1px solid rgba(128, 128, 128, 0.402);
+      background: rgba(128, 128, 128, 0.064);
+      border-radius: 5px;
+      padding: 10px;
+      margin: 2px;
+      cursor: pointer;
+      transition-duration: 0.5s;
+    }
+    .linkCard:hover {
+      background: rgba(128, 128, 128, 0.381);
+    }
+    .linkCard i {
+      font-size: 50px;
+      cursor: pointer;
+    }
+    .Projects {
+      margin-top: 50px;
+    }
+    .ProjectList {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 5px;
+      
+    }
+    .ProjectCard {
+      background: rgba(51, 51, 51, 0.112);
+      display: inline;
+      margin: 5px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid rgba(128, 128, 128, 0.475);
+      display: flex;
+      flex-direction: column;
+      /* align-items: center; */
+      /* width: 300px; */
+    }
+    .ProjectCard .title {
+      font-size: 2.4vh;
+      text-align: center;
+      
+    }
+    .ProjectCard button {
+      background: transparent;
+      border: none;
+      background: rgba(48, 48, 49, 0.822);
+      border-radius: 5px;
+      color: whitesmoke;
+      font-weight: bold;
+      padding: 0px;
+      
+      margin-top: 10px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition-duration: 0.5s;
+    }
+    .ProjectCard button:hover .transition-div {
+      width: 97%  ;
+      background: rgb(3, 107, 252);
+      /* color: black; */
+      
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .ProjectCard button:hover {
+      background: rgba(49, 48, 48, 0.47);
+    }
+    .ProjectCard .img {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+    .ProjectCard .desc {
+      color: rgb(75, 74, 74);
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .transition-div {
+      width: 10%  ;
+      transition-duration: 0.8s;
+      padding: 5px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      
+    }
+    .Education-List {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-left:0px;
+      
+    }
+    .Education-Card {
+      
+      background: rgba(128, 128, 128, 0.221);
+      display: inline-block;
+      padding: 10px;
+      text-align: center;
+      width: 50%;
+      border:1px solid gray;
+      margin: 30px;
+      margin-left: 20%;
+      border-radius: 5px;
+    }
+    .Edu-C-Icon {
+      font-size: 4vh;
+      margin: 2vh;
+    }
+    .Edu-C-Name {
+      font-weight: bold;
+      font-size: x-large;
+    }
+    .Edu-C-Desc {
+      margin: 2vh;
+      font-size: normal;
+      opacity: 80%;
+    }
+    .footer {
+      width: 100%;
+      border-top: 1px solid rgba(128, 128, 128, 0.635);
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+
+    }
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: inherit;
+    }
+    
+
+  </style>
+</head>
+<body>
+      <div class="navbar">
+          <div class="nav-left">
+              <img src="images/whitebglogo.png">
+          </div>
+          <div class="nav-right"> 
+              <div class="nav-right-buttons">
+                  <!-- <button>Clock</button>
+                  <button>Todo List</button>
+                  <button>Shop</button> -->
+                  <button onclick="dark();">  <i class="fa-solid fa-moon"></i></button>
+              </div>
+          </div>
+      </div>
+      <div class="mainbody">
+          <div class="Intro">
+              <div class="Name"> Hi, I Am <span style="font-weight:bold;text-decoration: underline;">Khizar Ahmed</span> </div>
+              <div class="Links">
+                  <div class="linkCard"> <i onclick="window.location.href=`https://www.linkedin.com/in/khizar-ahmed-06309a290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app`" style="color: #0a66c2;" class="fa-brands fa-linkedin-in"></i> </div>
+                  <div class="linkCard"> <i onclick="window.location.href=`https://github.com/khizarahmedalvi07-hue/`" class="fa-brands fa-github"></i> </div>
+                  <div class="linkCard"> <i onclick="window.location.href=`mailto:khizarahmedalvi07@gmail.com`" class="fa-solid fa-envelope"></i> </div>
+              </div>
+          </div>
+          <div class="Projects">
+              <div class="Name">Projects</div>
+              <div class="ProjectList">
+
+                   <div class="ProjectCard">
+                      <div class="img"><i class="fa-solid fa-shirt fa-2x"></i></div>
+                      <div class="title">Clothes</div>
+                      <div class="desc"> A Basic E-Commerece Website </div>
+                      <button onclick="window.location.href=`Homepage.html`">
+                          <div class="transition-div">
+                            Visit
+                          </div>
+                      </button>
+                  </div>
+
+                  <div class="ProjectCard">
+                      <div class="img"><i class="fa-regular fa-clock fa-2x"></i></div>
+                      <div class="title">Clock</div>
+                      <div class="desc"> A Clock, A Timer And A Stopwatch</div>
+                      <button onclick="window.location.href=`Clock.html`">
+                          <div class="transition-div">
+                            Visit
+                          </div>
+                      </button>
+                  </div>
+
+                  <div class="ProjectCard">
+                      <div class="img"><i class="fa-regular fa-clipboard fa-2x"></i></div>
+                      <div class="title">Todo List</div>
+                      <div class="desc"> A Todo List With Add And Delete Todo Functionality</div>
+                      <button onclick="window.location.href=`Todo List.html`">
+                          <div class="transition-div">
+                            Visit
+                          </div>
+                      </button>
+                  </div>
+
+              </div>
+          </div>
+          <div class="Education">
+            <div class="Name">Education</div>
+              <div class="Education-List">
+                <div style="display: flex;flex-direction: column;">
+
+                  <div class="Education-Card">
+                      <div class="Edu-C-Icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                      <div class="Edu-C-Name">BS-Software Engg</div>
+                      <div class="Edu-C-Desc">I Am Currently A Student In <a style="color: rgb(7, 150, 7);" href="https://www.ssuet.edu.pk/"><span href="https://www.ssuet.edu.pk/">SSUET</span></a> In The Field Of Software Engineering</div>
+                  </div>
+
+                  <div class="Education-Card">
+                      <div class="Edu-C-Icon"><i class="fa-solid fa-building-columns"></i></div>
+                      <div class="Edu-C-Name">HSC-Computer Science (College)</div>
+                      <div class="Edu-C-Desc">I Was A Student In <a style="color: rgb(255, 47, 47);" href="https://www.facebook.com/CanttCollegeKarachiOfficial/"> Govt Degree College Malir Cantt In The Field Of Gen Science </a> </div>
+                  </div>
+
+                  <div class="Education-Card">
+                      <div class="Edu-C-Icon"><i class="fa-solid fa-school"></i></div>
+                      <div class="Edu-C-Name">SSC-Computer Science (School)</div>
+                      <div class="Edu-C-Desc">I Was A Student In The <a style="color: rgb(3, 89, 237);" href="https://www.educators.edu.pk/">The Educators School</a> And My Main Subjects Was Computer Science</div>
+                  </div>
+
+              </div>
+              </div>
+          </div>
+          <div class="Education">
+            <div class="Name">Skills</div>
+              <div class="Education-List">
+                <div style="display: flex;flex-direction: column;">
+
+                  <div class="Education-Card">
+                    
+                      <div style="font-size: 50px;" class="Edu-C-Icon"> <i style="color: orange;margin-right: 10px;" class="fa-brands fa-html5"></i><i style="color: rgb(0, 94, 255);" class="fa-brands fa-css3-alt"></i> <i style="color: rgb(215, 215, 6);" class="fa-brands fa-square-js"></i></div>
+                      <div class="Edu-C-Name">HTML, CSS, JavaScript</div>
+                      <div class="Edu-C-Desc">I feel confident in my HTML and CSS skills, which allow me to create structured and visually appealing websites. While I’m not yet amazing at making fully responsive designs, my layouts work satisfactorily across mobile and desktop screen sizes, and I’m continuing to improve in this area.
+
+I’ve recently started working with JavaScript, and since it’s a programming language with much more depth, I still have a lot to explore. I see this as an exciting opportunity to grow further as a developer and make my projects more dynamic and interactive and I soon plan to try React and also TailWind CSS As I have heard that these assist greatly in Front-End Development</div>
+                  </div>
+
+                  <div class="Education-Card">
+                      <div style="font-size: 50px;" class="Edu-C-Icon"> <i style="color: rgb(4, 116, 229);" class="fa-brands fa-python"></i><i style="color: maroon;" class="fa-brands fa-java"></i> </div>
+                      <div class="Edu-C-Name">Java And Python</div>
+                      <div class="Edu-C-Desc">As I have described that I am a University Student and in my 1st Semester I was taught Python as my subject was (Programming Fundamentals) and in it i studied about basic python (Basic input,output,if else conditions,loops) and as well as intermediate python (lists,tuples,error handling,try blocks) and in my 2nd Semester I studied OOP (Object Oriented Programming) And for that I learnt and tried out Java And I learnt about many concepts such as basic inputs, Classes,Objects, Inheritance, Polymormphysm,Templates, Error Handling. However I Am not proefficient in their frameworks such as Flask,SpringBoot etc and that is the reason as to why I have not implemented a backend yet but I Believe that my Front-End Development is satisfactory </div>
+                  </div>
+
+                  <div class="Education-Card">
+                      <div class="Edu-C-Icon"><i style="color: green;" class="fa-regular fa-image"></i></div>
+                      <div class="Edu-C-Name">Wireframing</div>
+                      <div class="Edu-C-Desc">In My University I was introduced to the concept of Wireframing and since then I have made many wireframes of many websites, Even For this porfolio page I Have Made A Wireframe however at the time I did not think About adding A Skills Section</div>
+                  </div>
+
+              </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer">
+        © 2025 Khizar Ahmed. All rights reserved. <br><br>
+        <a style="font-weight: 100;" href="https://www.flaticon.com/free-icons/html" title="html icons">Html icons created by Freepik - Flaticon</a>
+      </div>
+
+      <script>
+        darkCounter=0;
+        localStorage.getItem("DarkMode")
+        
+        function dark() {
+          if (darkCounter==0) {darkActive();darkCounter+=1;localStorage.setItem("DarkMode",1)}
+          else {darkDeActive();darkCounter-=1;localStorage.setItem('DarkMode',0)}
+        }
+        function darkActive() {
+          document.querySelector('body').classList.add('darkBody');
+          document.querySelector('.nav-left').innerHTML='<img src="images/blackbglogo.png">'
+        }
+        function darkDeActive() {
+           document.querySelector('body').classList.remove('darkBody');
+           document.querySelector('.nav-left').innerHTML=`<img src="images/whitebglogo.png">`
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="images/blackbglogo.png">
+    <title>Women</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        background-color: rgb(235, 234, 234);
+      }
+      .ambianceOn {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        background-color:rgb(25, 24, 24) ;
+        color: lightgray;
+        transition-duration: 0.3s;
+      }
+      
+      .navbar {
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0; height: 100px;right: 0;
+        left: 0px; 
+        background-color: white;
+        transition: 0.5s;
+        z-index: 10;
+        border-bottom: 2px solid lightgrey;
+                transition-duration: 1s;
+
+      }
+      .navbar-act{
+        left: 100px; 
+      }
+      .darknavbar {
+        background-color: rgb(25, 24, 24);
+        border-bottom: 2px solid rgb(101, 100, 100);
+      }
+      .darknavbar button {
+        color: aliceblue;
+      }
+
+      .mainbody {
+        transition: 0.2s;
+        margin-top: 100px;
+        margin-left: 0px;
+      }
+      .mainbody-act {
+        margin-top: 100px;
+        margin-left: 95;
+      }
+      .sidebar {
+         transition-duration: 1s;
+
+      }
+      .innersidebar{
+        background-color: white;
+                transition-duration: 1s;
+
+        position: fixed;
+        top: 100px;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        transition: 0.5s;
+        z-index: 5;
+        border-right: 2px solid lightgray;
+        display: flex;
+        flex-direction: column;
+        
+      }
+      .darkinnersidebar {
+        background-color:rgb(25, 24, 24);
+        color: white;
+        border-right: 2px solid rgb(101, 100, 100);
+      }
+      .darkinnersidebar button {
+        color: white;
+      }
+      .sidebar-button {
+        height: 80px;
+        width: 100%;
+        border: none;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid rgb(198, 195, 195);
+        background-color:transparent;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        font-weight: bold;
+        
+      }
+      .sidebar-button-ambianceToggle {
+        height: 80px;
+        width: 100%;
+        border: none;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid rgb(198, 195, 195);
+        background-color:transparent;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        font-weight: bold;
+        
+      }
+      .sidebar-button:hover {
+        background-color: lightgray;
+      }
+      .sidebar-button:active {
+        background-color: rgb(70, 69, 69);
+        color: white;
+        font-weight: bolder;
+      }
+      .center-hv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40%;
+      }
+      .cart-div img {
+        cursor: pointer;
+        margin-right: 20px;
+        
+        border-radius: 10px;
+        
+      }
+      .card-div img:hover {
+        background-color: rgba(128, 128, 128, 0.79);
+      }
+      .card-div img:active {
+        background-color: red;
+      }
+      .center-v {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+      .nav-left {
+        position: absolute;
+        left: 0;
+        top: 5vh;
+        cursor: pointer;
+      }
+      .nav-left img {
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .nav-left img:hover {
+        background-color: rgba(136, 135, 135, 0.402);
+      }
+      
+      .nav-center {
+        margin-top:10px;
+      }
+      .nav-right {
+        position: fixed;
+        right: 10px;
+        margin-top: -60px;
+
+      }
+
+      .nav-button{
+        border: none;
+        background-color: transparent;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-top: -55px;
+        width: 100px;
+        transition: 0.4s;
+        cursor: pointer;
+        height: 50px;
+      }
+      .nav-button:hover {
+        background-color: rgba(190, 189, 189, 0.53);
+      }
+      .nav-button:active {
+        background-color: rgb(70, 69, 69);
+        color: white;
+      }
+       .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr ;
+      row-gap: 0px;
+      column-gap: 0px;
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 20px;
+    }
+    .grid button {
+
+     height: 40px;
+     width: 30vh;
+      border: 1px solid gray;
+      transition: 0.4s;
+      cursor: pointer;
+      background-color: white;
+      background-color: rgb(70, 69, 69);
+   
+      color: white; 
+      font-weight: bold;
+      border-radius: 20px;
+      margin-top: 10px;
+
+    }
+    .grid button:hover {
+      
+       background-color: rgb(52, 51, 51);
+    }
+    .grid button:active {
+      background-color: rgb(36, 35, 35);
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+    }
+    .card {
+      display: flex; flex-direction: column;
+      height: 350px; width: 300px;
+      border: 2px solid rgba(128, 128, 128, 0.208);
+      background-color: rgba(128, 128, 128, 0.043);
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+   
+    .image img {
+      height: 220px;
+   
+    }
+    .card .name {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: 520;
+    }
+    .card .price {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bolder;
+    }
+
+
+                /* Rest Of Body */
+                 .banner {
+                    margin-top: 0px;
+                    margin-left: 0px;
+                    position: relative;
+                  }
+                .div2{
+                  font-size: 150px;
+                  position: absolute;
+                  top: -20%;
+                  left: 10%;
+                  color: white;
+                  font-family: cursive;
+                }
+                .add-to-cart-popup {
+                  position: fixed;
+                  top: 80%;
+                  right: 40%;
+                  background-color: rgba(0, 0, 0, 0.498);
+                  backdrop-filter: blur(5px);
+                  z-index: 1000;
+                  font-weight: bold;
+                  padding-left: 4vh;
+                  padding-right: 4vh;
+                  padding-top: 1vh;
+                  padding-bottom: 1vh;
+                  border-radius: 8px;
+                  font-size:2vh;
+                  color: white;
+                  width: fit-content;
+                  text-align: center;
+                  max-width: 50vh;
+                }
+               
+                .hamburger-icon-div {
+                  background-color: white;
+                  transition: 0.5s;
+                  width: fit-content;
+
+                }
+                .hamburger-icon-div:hover {
+                  background-color: lightgrey;
+                }
+                .hamburger-icon-div:active {
+                  background-color: gray;
+                }
+                .cart-bar {
+                  position: fixed;
+                  right: 0; top: 100px; bottom: 0;
+                  width: 120px;
+                  /* background-color: rgba(37, 37, 37, 0.539); */
+                  background-color: whitesmoke;
+                  z-index: 100;
+                  backdrop-filter: blur(10px);
+                  text-align: center;
+                  padding: 5px;
+                  border: 2px solid lightgrey;
+                }
+                .dark-cart-bar {
+                  background-color: rgb(27, 26, 26);
+                  color: white;
+                  border: none;
+                  border-top: 2px solid rgb(101, 100, 100);
+                  border-left: 2px solid rgb(101, 100, 100);
+                }
+
+                @media (min-width:100px) and (max-width:599px) {
+                  .ambianceOn {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        background-color:rgb(25, 24, 24) ;
+        color: lightgray;
+      }
+      
+      .navbar {
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0; height: 100px;right: 0;
+        left: 0px; 
+        background-color: white;
+        transition: 0.5s;
+        z-index: 10;
+        border-bottom: 2px solid lightgrey;
+      }
+      .navbar-act{
+        left: 100px; 
+      }
+      .darknavbar {
+        background-color: rgb(25, 24, 24);
+        border-bottom: 2px solid rgb(101, 100, 100);
+      }
+      .darknavbar button {
+        color: aliceblue;
+      }
+
+      .mainbody {
+        transition: 0.2s;
+        margin-top: 100px;
+        margin-left: 0px;
+      }
+      .mainbody-act {
+        margin-top: 100px;
+        margin-left: 95;
+      }
+      
+      .innersidebar{
+        background-color: white;
+        position: fixed;
+        top: 100px;
+        bottom: 0%;
+        left: 0%;
+        width: 100px;
+        transition: 0.5s;
+        z-index: 5;
+        border-right: 2px solid lightgray;
+        display: flex;
+        flex-direction: column;
+      }
+      .darkinnersidebar {
+        background-color:rgb(25, 24, 24);
+        color: white;
+        border-right: 2px solid rgb(101, 100, 100);
+      }
+      .darkinnersidebar button {
+        color: white;
+      }
+      .sidebar-button {
+        height: 80px;
+        width: 100%;
+        border: none;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid rgb(198, 195, 195);
+        background-color:transparent;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        font-weight: bold;
+        
+      }
+      .sidebar-button-ambianceToggle {
+        height: 80px;
+        width: 100%;
+        border: none;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid rgb(198, 195, 195);
+        background-color:transparent;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        font-weight: bold;
+        
+      }
+      .sidebar-button:hover {
+        background-color: lightgray;
+      }
+      .sidebar-button:active {
+        background-color: rgb(70, 69, 69);
+        color: white;
+        font-weight: bolder;
+      }
+      .center-hv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40%;
+      }
+      .center-hv img {
+        height: 70px;
+        margin-right: 70px;
+      }
+      .cart-div img {
+        height: 50px;
+        margin-left: 60px;
+        cursor: pointer;
+      }
+      .center-v {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+      .nav-left {
+        position: absolute;
+        left: 0;
+        top: 5vh;
+        cursor: pointer;
+      }
+      .nav-center {
+        margin-top: 20px;
+        margin-left: 30px;
+      }
+      .nav-right {
+        position: fixed;
+        right: 20px;
+        margin-right: 0px;
+
+      }
+      .nav-button{
+        border: none;
+        background-color: transparent;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-top: -60px;
+        width: 60px;
+        transition: 0.4s;
+        cursor: pointer;
+        height: 30px;
+      }
+      .nav-button:hover {
+        background-color: gray;
+      }
+      .nav-button:active {
+        background-color: rgb(70, 69, 69);
+        color: white;
+      }
+       .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr    ;
+      row-gap: 10px;
+      column-gap: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 20px;
+    }
+    .grid button {
+
+     height: 30px;
+     width: 20vh;
+      border: 1px solid gray;
+      transition: 0.4s;
+      cursor: pointer;
+     
+      background-color: rgba(118, 117, 117, 0.509);
+   
+      color: white; 
+      font-weight: bold;
+      border-radius: 20px;
+      margin-top: 10px;
+
+    }
+    .grid button:hover {
+      
+       background-color: rgb(52, 51, 51);
+    }
+    .grid button:active {
+      background-color: rgb(36, 35, 35);
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+    }
+    .card {
+      display: flex; flex-direction: column;
+      height: 240px; width: 185px;
+      border: 1px solid darkgray;
+      border-radius: 10px;
+      background-color: rgba(131, 130, 130, 0.057);
+    }
+    .image {
+      border-bottom: 0px solid lightgray;
+    }
+    .image img {
+      height: 120px;
+   
+    }
+    .card .name {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: 520;
+    }
+    .card .price {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bolder;
+    }
+
+
+                /* Rest Of Body */
+                 .banner {
+                    margin-top: 0px;
+                    margin-left: 0px;
+                    position: relative;
+                  }
+                .div2{
+                  font-size: 80px;
+                  position: absolute;
+                  
+                  top: -20%;
+                  left: 0%;
+                  color: white;
+                  font-family: cursive;
+                }
+                .add-to-cart-popup {
+                  position: fixed;
+                  top: 90%;
+                  right: 20%;
+                  background-color: rgba(0, 0, 0, 0.692);
+                  backdrop-filter: blur(30px);
+                  z-index: 1000;
+                  font-weight: bold;
+                  padding-left: 2vh;
+                  padding-right: 2vh;
+                  padding-top: 0.5vh;
+                  padding-bottom: 0.5vh;
+                  border-radius: 8px;
+                  font-size:1.5vh;
+                  color: white;
+                  width: fit-content;
+                  text-align: center;
+                  max-width: 50vh;
+                }
+               
+                .hamburger-icon-div {
+                  background-color: white;
+                  transition: 0.5s;
+                  width: fit-content;
+
+                }
+                .hamburger-icon-div:hover {
+                  background-color: lightgrey;
+                }
+                .hamburger-icon-div:active {
+                  background-color: gray;
+                }
+                }
+              
+
+    </style>
+  </head>
+  <!-- <img src="images/hamburger.png" onclick="toggle(); " height="30px"  style="margin-left: 20px;"> -->
+  <body>
+        <div class="navbar">
+             <!-- <button onclick="toggle();">Toggle</button>  -->
+              <div class="nav-left">
+                <!-- <div class="hamburger-icon-div"> -->
+                 <img src="images/hamburger.png" onclick="toggle(); " height="30px"  style="margin-left: 5vh;" >
+                <!-- </div> -->
+              </div>
+              <div class="nav-center">
+                <div class="center-hv">
+                <a href="Homepage.html">  <img  src="images/whitebglogo.png" height="80vh"> </a>
+                </div>
+              </div>
+              <div class="nav-right">
+              
+                  <div class="cart-div">
+                 <img class='cartimg' src="images/cart.png" height="45px" onclick="cart();">
+                 </div>
+                  
+              </div>
+        </div>
+        <div class="sidebar">
+
+          
+         
+
+        </div>
+        <div class="mainbody">
+
+          <div class="banner">
+              <div class="div1">  <img src="images/womenbanner2edited.jpg" width="100%">  </div>
+              
+              <div class="div2"> <p>Women</p></div>
+          </div>
+                  
+
+
+                    <div class="grid">
+
+
+          <div class="card">
+            <div class="image">
+              <div class="center">
+                  <img src="images/menshirt1.png" height="100%">
+              </div>
+              </div>
+              <div class="name">Shirt Name</div>
+              <div class="price">50$</div>
+              <div class="add-button">
+                <div class="center">
+                    <button onclick="popup()">Add To Cart</button>
+                </div>
+              </div>
+          </div > 
+
+          <div class="card">
+            <div class="image">
+              <div class="center">
+                  <img src="images/menshirt2.png" height="100%">
+              </div>
+              </div>
+              <div class="name">Shirt Name</div>
+              <div class="price">50$</div>
+              <div class="add-button">
+                <div class="center">
+                    <button onclick="popup()">Add To Cart</button>
+                </div>
+              </div>
+          </div > 
+
+          <div class="card">
+            <div class="image">
+              <div class="center">
+                  <img src="images/menshirt3.png" height="100%">
+              </div>
+              </div>
+              <div class="name">Shirt Name</div>
+              <div class="price">50$</div>
+              <div class="add-button">
+                <div class="center">
+                    <button onclick="popup()">Add To Cart</button>
+                </div>
+              </div>
+          </div > 
+
+          <div class="card">
+            <div class="image">
+              <div class="center">
+                  <img src="images/menshirt1.png" height="100%">
+              </div>
+              </div>
+              <div class="name">Shirt Name</div>
+              <div class="price">50$</div>
+              <div class="add-button">
+                <div class="center">
+                    <button onclick="popup()">Add To Cart</button>
+                </div>
+              </div>
+          </div > 
+
+          <div class="card">
+            <div class="image">
+              <div class="center">
+                  <img src="images/menshirt2.png" height="100%">
+              </div>
+              </div>
+              <div class="name">Shirt Name</div>
+              <div class="price">50$</div>
+              <div class="add-button">
+                <div class="center">
+                    <button onclick="popup()">Add To Cart</button>
+                </div>
+              </div>
+          </div > 
+
+          <div class="card">
+            <div class="image">
+              <div class="center">
+                  <img src="images/menshirt3.png" height="100%">
+              </div>
+              </div>
+              <div class="name">Shirt Name</div>
+              <div class="price">50$</div>
+              <div class="add-button">
+                <div class="center">
+                    <button onclick="popup()">Add To Cart</button>
+                </div>
+              </div>
+          </div > 
+
+          <div class="card">
+            <div class="image">
+              <div class="center">
+                  <img src="images/menshirt1.png" height="100%">
+              </div>
+              </div>
+              <div class="name">Shirt Name</div>
+              <div class="price">50$</div>
+              <div class="add-button">
+                <div class="center">
+                    <button onclick="popup()">Add To Cart</button>
+                </div>
+              </div>
+          </div > 
+
+          <div class="card">
+            <div class="image">
+              <div class="center">
+                  <img src="images/menshirt2.png" height="100%">
+              </div>
+              </div>
+              <div class="name">Shirt Name</div>
+              <div class="price">50$</div>
+              <div class="add-button">
+                <div class="center">
+                    <button onclick="popup()">Add To Cart</button>
+                </div>
+              </div>
+          </div > 
+
+          <div class="card">
+            <div class="image">
+              <div class="center">
+                  <img src="images/menshirt3.png" height="100%">
+              </div>
+              </div>
+              <div class="name">Shirt Name</div>
+              <div class="price">50$</div>
+              <div class="add-button">
+                <div class="center">
+                    <button onclick="popup()">Add To Cart</button>
+                </div>
+              </div>
+          </div > 
+
+
+          
+
+          
+
+
+      </div>
+        </div>
+        <div class="add-to-cart-popup-div">
+
+         
+        </div>
+
+        <div class="cart-bar-div">
+            
+        </div>
+
+
+
+        <script>
+          let counterPopup=0;
+          let counter=0;
+          let counterBoolean = false;
+          let ambient=0;
+          let ambianceCounter=0;
+          let darkModeEnabled=0;
+          let cartCounter=0;
+          
+          function toggle() {
+            console.log(counter);
+            if (counter==0) {counter+=1;on();}
+            else {counter-=1;off();}
+          }
+          function booleanToggle() {
+            counterBoolean = !counterBoolean;
+          }
+          function on() {
+            let mainBody=document.querySelector('.mainbody');
+            let navBar=document.querySelector('.navbar');
+            // navBar.classList.add('navbar-act');
+            mainBody.classList.add('mainbody-act');
+
+            let sideBar=document.querySelector('.sidebar');
+
+  
+            sideBar.innerHTML=`
+
+
+            <div class="innersidebar">
+                <a href="Menpage.html"> <button class="sidebar-button">Men</button></a>
+               <a href="Kidspage.html"> <button class="sidebar-button">Kids</button></a>
+                <button class="sidebar-button" onclick="window.location.href='About-Clock.html'">About</button>
+                 <div class="center-hv">
+                 
+                 
+                 </div>
+                 <button onclick="ambiancetoggle();" class="sidebar-button">Dark Mode</button>
+
+            </div>
+
+
+            `
+           
+            if (darkModeEnabled==1){
+            document.querySelector('.innersidebar').classList.add('darkinnersidebar');
+            
+            // document.querySelector('.cart-div').innerHTML=`<img class='cartimg' src="images/whitecart.png" height="40px">`
+           
+            
+            }
+            
+            
+          }
+          function off() {
+            let mainBody=document.querySelector('.mainbody');
+            let navBar=document.querySelector('.navbar');
+            // navBar.classList.remove('navbar-act');
+            mainBody.classList.remove('mainbody-act');
+
+            let sideBar=document.querySelector('.sidebar');
+            sideBar.innerHTML=''
+          }
+          function ambiancetoggle() {
+            console.log(ambianceCounter);
+            if (ambianceCounter==0) {ambianceCounter+=1;ambianceOn();}
+            else {ambianceCounter-=1;ambianceOff();}
+          }
+          function ambianceOn() {
+            
+              
+            
+            //  document.querySelectorAll('.card').forEach(c => {
+            //   c.classList.add('carddark');
+            // });
+
+            // CSS
+
+            if (ambient==0) {
+            let ambiance=document.querySelector('body');
+            ambiance.classList.add('ambianceOn');
+            document.querySelector('.navbar').classList.add('darknavbar');
+            document.querySelector('.cart-div').innerHTML=`<img class='cartimg' src="images/whitecart.png" onclick="cart();" height="45px">`
+            
+            document.querySelector('.innersidebar').classList.add('darkinnersidebar');
+            document.querySelector('.card').classList.add('carddark');
+
+            if (cartCounter==1) {document.querySelector('.cart-bar').classList.add('dark-cart-bar');}
+
+            // HTML
+            document.querySelector('.nav-left').innerHTML=  `
+                <img src="images/hamburgerwhite.png" onclick="toggle(); " height="30px"  style="margin-left: 5vh;">
+              `
+              document.querySelector('.nav-center').innerHTML=`<div class="center-hv">
+                <img src="images/blackbglogo.png" height="80vh"> 
+                </div>`
+                
+
+                }
+                 ambient+=1;
+                 darkModeEnabled+=1;
+                 
+                
+          }
+          function ambianceOff() {
+
+            if (ambient==1) {
+            
+            let ambiance=document.querySelector('body');
+            ambiance.classList.remove('ambianceOn');
+            document.querySelector('.cart-div').innerHTML=`<img class='cartimg' src="images/cart.png" height="45px" onclick="cart()">`
+            document.querySelector('.card').classList.remove('carddark');
+            // document.querySelector('.addtocartbutton').classList.remove('darkaddtocartbutton');
+            document.querySelector('.navbar').classList.remove('darknavbar');
+            document.querySelector('.innersidebar').classList.remove('darkinnersidebar');
+            if (cartCounter==1) {document.querySelector('.cart-bar').classList.remove('dark-cart-bar');}
+
+
+            document.querySelector('.nav-left').innerHTML=  `
+                <img src="images/hamburger.png" onclick="toggle(); " height="30px"  style="margin-left: 5vh;">
+              `
+              document.querySelector('.nav-center').innerHTML=`<div class="center-hv">
+                <img src="images/whitebglogo.png" height="80vh"> 
+                </div>`
+                
+                 ambient-=1;
+                 darkModeEnabled-=1;
+                }
+          }
+
+          function popup() {
+            document.querySelector('.add-to-cart-popup-div').innerHTML=`<div class="add-to-cart-popup">
+              <p>Item Has Been Added To Cart</p>
+          </div>`
+            setTimeout(() => {
+              document.querySelector('.add-to-cart-popup-div').innerHTML=``
+            
+          }, 2000);
+
+          }
+
+          function cart() {
+            if (cartCounter==0) {cartCounter+=1;cartOn();}
+            else {cartCounter-=1;cartOff();}
+          }
+          function cartOn() {
+            document.querySelector('.cart-bar-div').innerHTML=`
+            <div class="cart-bar">   No Items Added   </div>`
+
+            if (darkModeEnabled==1) {
+              document.querySelector('.cart-bar').classList.add('dark-cart-bar')
+            }
+          }
+          function cartOff() {
+            document.querySelector('.cart-bar-div').innerHTML=``
+          }
+
+        </script>
+  </body>
+</html>
